@@ -1,0 +1,8 @@
+# 비밀 설정 (Wi-Fi / MQTT 자격증명)
+arduino/include/wifi_secrets.h
+
+# PlatformIO
+.pio/
+.vscode/.browse.c_cpp_db*
+*.elf
+*.map
