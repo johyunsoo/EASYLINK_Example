@@ -17,7 +17,18 @@
 #include <PubSubClient.h>
 #include <ModbusMaster.h>
 #include "easylink_pins.h"
-#include "wifi_secrets.h"
+
+// ———— [USER] Wi-Fi / MQTT — 아래 **** 를 실제 값으로 바꿈 (wifi_secrets.h 미사용) ————
+static const char *WIFI_SSID = "****";
+static const char *WIFI_PASSWORD = "****";
+static const char *MQTT_SERVER = "****";
+static const uint16_t MQTT_PORT = 1883;
+static const char *MQTT_USER = "****";     // 인증 없음: "" 로 변경
+static const char *MQTT_PASSWORD = "****"; // 인증 없음: "" 로 변경
+
+static bool mqttUseAuth() {
+  return (strlen(MQTT_USER) > 0 && strcmp(MQTT_USER, "****") != 0);
+}
 
 static const uint8_t MODBUS_SLAVE_ID = 1;
 static const uint16_t HOLD_REG_START = 0;
@@ -56,7 +67,7 @@ void connectMqtt() {
   while (!mqtt.connected()) {
     Serial.println(F("[INIT] MQTT 연결 시도"));
     bool ok;
-    if (strlen(MQTT_USER) > 0)
+    if (mqttUseAuth())
       ok = mqtt.connect(cid, MQTT_USER, MQTT_PASSWORD);
     else
       ok = mqtt.connect(cid);

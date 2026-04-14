@@ -8,7 +8,7 @@
 | 경로 | 설명 |
 |------|------|
 | `arduino/include/easylink_pins.h` | 보드 핀 `#define` 단일 소스 |
-| `arduino/include/wifi_secrets.h.example` | Wi-Fi/MQTT 설정 템플릿 → `wifi_secrets.h` 로 복사 |
+| `arduino/include/wifi_secrets.h.example` | (참고용) 과거 템플릿 — Modbus MQTT 예제는 `main.cpp` 의 `****` 항목을 직접 수정 |
 | `docs/pinmap/` | GitHub용 핀맵 요약(옵시디안과 동일 내용) |
 | `examples/*` | PlatformIO 예제 (폴더별 `pio run`) |
 
@@ -25,7 +25,7 @@
 ## 빠른 시작
 
 1. [PlatformIO](https://platformio.org/) 설치.
-2. `wifi_secrets.h.example` 을 `arduino/include/wifi_secrets.h` 로 복사하고 SSID·MQTT 브로커 등 수정 (MQTT 예제만 해당).
+2. Modbus MQTT 예제(`modbus_rtu_mqtt_rs485` / `modbus_rtu_mqtt_rs232`)는 각 `src/main.cpp` 상단의 `****` 자리에 SSID·비밀번호·MQTT 브로커 등을 입력한다 (`wifi_secrets.h` 미사용).
 3. 예제 폴더에서:
 
 ```bash

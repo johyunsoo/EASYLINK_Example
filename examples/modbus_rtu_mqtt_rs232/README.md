@@ -1,7 +1,7 @@
 # RS232 — Modbus RTU → MQTT
 
 - **UART**: `Serial2`, `RX=GPIO26`, `TX=GPIO27`
-- **설정**: `wifi_secrets.h` 필수. Modbus 파라미터는 `main.cpp` 상단
+- **Wi-Fi/MQTT**: `src/main.cpp` 상단 `****` 로 입력. Modbus 파라미터도 `main.cpp` 상단
 
 토픽: `easylink/modbus/rtu/rs232/holding`
 
